@@ -32,12 +32,15 @@
       <h2>Copy your code here</h2>
       <div class="copyCode">
         background-image: linear-gradient(to right, rgb(92,145,34),
-        rgb(92,145,34)){" "}
+        rgb(92,145,34))
       </div>
     </section>
     <script>
       let btn1 = document.getElementById("myButton");
       let btn2 = document.getElementById("myButton2");
+      let copyDiv = document.querySelector(".copyCode");
+      let rgb1 = "#000";
+      let rgb2 = "#fff"
 
       const hexValues = () => {
         let myhexvalues = "0123456789abcdef";
@@ -50,19 +53,28 @@
       };
 
       const handleButton1 = () => {
-        let rgb1 = hexValues();
+        rgb1 = hexValues();
+        btn1.innerText = rgb1
         console.log(rgb1);
-        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, #4444)`;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+      
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1},${rgb2})`
       };
 
       const handleButton2 = () => {
-        let rgb2 = hexValues();
+        rgb2 = hexValues();
         console.log(rgb2);
-        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb2}, #4444)`;
+        btn2.innerText = rgb2;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+      
+        copyDiv.innerHTML = `background-image: linear-gradient(to right, ${rgb1},${rgb2})`
       };
 
       btn1.addEventListener("click", handleButton1);
       btn2.addEventListener("click", handleButton2);
+      copyDiv.addEventListener("click", () => {
+        navigator.clipboard.writeText(copyDiv.innerText)
+      })
     </script>
   </body>
 </html>
