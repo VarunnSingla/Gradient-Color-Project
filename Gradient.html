@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <style>
+      * {
+      }
+      html {
+      }
+      body {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+          to right top,
+          #051937,
+          #004d7a,
+          #008793,
+          #00bf72,
+          #a8eb12
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <button id="myButton">#98767h</button>
+        <button id="myButton2">#94567h</button>
+      </div>
+
+      <h2>Copy your code here</h2>
+      <div class="copyCode">
+        background-image: linear-gradient(to right, rgb(92,145,34),
+        rgb(92,145,34)){" "}
+      </div>
+    </section>
+    <script>
+      let btn1 = document.getElementById("myButton");
+      let btn2 = document.getElementById("myButton2");
+
+      const hexValues = () => {
+        let myhexvalues = "0123456789abcdef";
+        let colors = "#";
+
+        for (let i = 0; i < 6; i++) {
+          colors = colors + myhexvalues[Math.floor(Math.random() * 16)];
+        }
+        return colors;
+      };
+
+      const handleButton1 = () => {
+        let rgb1 = hexValues();
+        console.log(rgb1);
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, #4444)`;
+      };
+
+      const handleButton2 = () => {
+        let rgb2 = hexValues();
+        console.log(rgb2);
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb2}, #4444)`;
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      btn2.addEventListener("click", handleButton2);
+    </script>
+  </body>
+</html>
+;
